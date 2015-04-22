@@ -126,9 +126,9 @@ template<typename _Tp, int m, int n> struct Matx_FastSolveOp
         Matx<_Tp, m, m> temp = a;
         x = b;
         if( method == DECOMP_CHOLESKY )
-            return Cholesky(temp.val, m*sizeof(_Tp), m, x.val, n*sizeof(_Tp), n);
+            return hal::Cholesky(temp.val, m*sizeof(_Tp), m, x.val, n*sizeof(_Tp), n);
 
-        return LU(temp.val, m*sizeof(_Tp), m, x.val, n*sizeof(_Tp), n) != 0;
+        return hal::LU(temp.val, m*sizeof(_Tp), m, x.val, n*sizeof(_Tp), n) != 0;
     }
 };
 
